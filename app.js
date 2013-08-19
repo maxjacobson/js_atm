@@ -7,6 +7,7 @@ var total
 transact = function() {
   amount = parseFloat(prompt("How much would you like to " + command));
   if(isNaN(amount)) {
+    alert("Try typing in a number!");
     return false;
   } else {
     switch(command) {
