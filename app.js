@@ -4,12 +4,12 @@ var total
   , transact
   , looping = true;
 
-transact = function(action) {
-  amount = parseFloat(prompt("How much would you like to " + action));
+transact = function() {
+  amount = parseFloat(prompt("How much would you like to " + command));
   if(isNaN(amount)) {
     return false;
   } else {
-    switch(action) {
+    switch(command) {
       case "deposit":
         total += amount;
         break;
@@ -31,10 +31,8 @@ total = parseFloat(prompt("How much money do you have? (be honest)"));
 
 while(looping == true) {
   command = prompt("What would you like to do, deposit, withdraw, or exit?").toLowerCase();
-  if(command === "deposit") {
-    transact("deposit");
-  } else if(command === "withdraw") {
-    transact("withdraw");
+  if(command === "deposit" || command === "withdraw") {
+    transact();
   } else if(command === "exit") {
     looping = false;
   } else {
