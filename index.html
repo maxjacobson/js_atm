@@ -6,25 +6,17 @@
     , looping = true;
 
   transact = function() {
-    amount = parseFloat(prompt("How much would you like to " + command));
+    amount = parseFloat(prompt("How much would you like to " + command +"?"));
     if(isNaN(amount)) {
       alert("Try typing in a number!");
       return false;
-    } else {
-      switch(command) {
-        case "deposit":
-          total += amount;
-          break;
-        case "withdraw":
-          if(amount > total) {
-            alert("Sorry, you don't have that much");
-          } else {
-            total -= amount;
-          }
-          break;
-        default:
-          return false;
-          break;
+    } else if(command === "deposit") {
+      total += amount;
+    } else if(command === "withdraw") {
+      if(amount > total) {
+        alert("Sorry, you don't have that much");
+      } else {
+        total -= amount;
       }
     }
   };
